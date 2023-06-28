@@ -1,6 +1,9 @@
 <script>
     import '$lib/fonts.css'
     import NavLink from "$lib/components/NavLink.svelte"
+    import logoSmall from "$lib/svg/logo-small.svg"
+    import logo from "$lib/svg/logo.svg"
+    import Proverb from "$lib/components/Proverb.svelte";
 
     // Theme.
     const backgroundColour = '#131313'
@@ -9,7 +12,7 @@
 <div class="page" style="--col-bg: {backgroundColour}">
     <div class="header">
         <a href="/">
-            <img class="logo" src="logo.svg" alt="Logo" />
+            <img class="logo" src={logo} alt="Logo" />
         </a>
         <div class="links">
             <NavLink link="/projects" text="projects" />
@@ -21,13 +24,16 @@
         <slot></slot>
     </div>
     <div class="footer">
-        <img class="logo-small" src="logo-small.svg" alt="Logo" />
+        <img class="logo-small" src={logoSmall} alt="Logo" />
         <p>2023</p>
+        <div>
+            <Proverb />
+        </div>
     </div>
 </div>
 
 
-<style>
+<style lang="scss">
     :global(*) {
         font-family: Rubik, sans-serif;
         color: white;
@@ -35,26 +41,9 @@
         font-weight: normal;
     }
 
-    .header {
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-
-        display: flex;
-        align-items: center;
-
-        padding: 20px 10vw;
-    }
-
     .logo {
-        margin-left: -20px;
+        margin-left: -23px;
         height: 80px;
-    }
-
-    .logo-small {
-        height: 12px;
-        margin-right: 8px;
     }
 
     .page {
@@ -67,6 +56,18 @@
 
         display: flex;
         align-items: center;
+
+        .header {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+
+            display: flex;
+            align-items: center;
+
+            padding: 20px 10vw;
+        }
     }
 
     .links {
@@ -88,9 +89,18 @@
         display: flex;
         flex-direction: row;
         align-items: baseline;
-    }
 
-    .footer p {
-        margin: 0;
+        .logo-small {
+            height: 12px;
+        }
+
+        > * {
+            margin: 0 8px;
+        }
+
+        .proverb {
+            color: #A6A6A6;
+            font-style: italic;
+        }
     }
 </style>
