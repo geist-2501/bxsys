@@ -39,6 +39,27 @@
         color: white;
         box-sizing: border-box;
         font-weight: normal;
+        margin: 0;
+    }
+
+    :global(h1) {
+        font-size: 48px;
+    }
+
+    :global(h2) {
+        font-size: 40px;
+    }
+
+    :global(h3) {
+        font-size: 36px;
+    }
+
+    :global(h4) {
+        font-size: 24px;
+    }
+
+    :global(p, a) {
+        font-size: 20px;
     }
 
     .logo {
@@ -96,11 +117,6 @@
 
         > * {
             margin: 0 8px;
-        }
-
-        .proverb {
-            color: #A6A6A6;
-            font-style: italic;
         }
     }
 </style>
