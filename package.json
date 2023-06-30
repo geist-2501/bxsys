@@ -27,6 +27,7 @@
   },
   "type": "module",
   "dependencies": {
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "zod": "^3.22.0-canary.20230623T202513"
   }
 }

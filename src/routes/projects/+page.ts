@@ -1,34 +1,14 @@
-import type {Project, ProjectFrontmatter, ProjectLink} from "$lib/model/project";
-
-function createLinks(meta: any): ProjectLink[] {
-    const links: ProjectLink[] = []
-    if ("github" in meta) {
-        links.push({
-            displayName: "github",
-            link: meta["github"]
-        })
-    }
-
-    return links
-}
+import {projectFromMetadata} from "$lib/model/project";
+import type {Markdown} from "$lib/model/markdown";
 
 export async function load() {
     const projects = await Promise.all(
-        Object.entries(import.meta.glob('$lib/projects/*.md')).map(async ([path, resolver]) => {
-            const resolved: any = await resolver()
-            const metadata = resolved.metadata as ProjectFrontmatter
-            const slug = path.split('/').pop()?.slice(0, -3)
-
-            const project: Project = {
-                title: metadata.title,
-                tags: metadata.tags,
-                description: metadata.description,
-                slug: slug ?? "no-slug",
-                links: createLinks(metadata)
-            }
-
-            return project
+        Object.entries(import.meta.glob('$lib/projects/*.md')).map(async ([_, resolver]) => {
+            const { metadata } = await resolver() as Markdown
+            return projectFromMetadata(metadata)
         }))
+
+    projects.filter(project => project !== null)
 
     return {
         projects: projects
