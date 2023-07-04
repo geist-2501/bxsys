@@ -17,7 +17,6 @@
         <div class="links">
             <NavLink link="/projects" text="projects" />
             <NavLink link="/blog" text="blog" />
-            <NavLink link="/contact" text="contact" />
         </div>
     </div>
     <div>

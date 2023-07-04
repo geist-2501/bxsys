@@ -56,13 +56,12 @@
 
         .post {
             grid-column: 1 / span 1;
-            margin-right: 10px;
+            margin-right: 20px;
         }
 
         .project {
             grid-column: 2 / span 1;
-            margin-left: 10px;
-
+            margin-left: 20px;
         }
     }
 </style>
