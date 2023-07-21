@@ -1,8 +1,25 @@
-<script  lang="ts">
-    import type {PageData} from "./$types"
-    export let data: PageData
+<script lang="ts">
+    import type {ProjectPageData} from "./+page.js";
+    import ProjectHeader from "$lib/components/ProjectHeader.svelte";
+    import MarkdownRenderer from "$lib/components/MarkdownRenderer.svelte";
+    export let data: ProjectPageData
 
-    const { project } = data
+    const { project, metadata } = data
 </script>
 
-<svelte:component this={project} />
+<div class="container">
+    <div class="header">
+        <ProjectHeader project={metadata} big />
+    </div>
+    <MarkdownRenderer markdown={project} />
+</div>
+
+<style lang="scss">
+    .container {
+        max-width: 60vw;
+
+        .header {
+            margin-bottom: 20px;
+        }
+    }
+</style>

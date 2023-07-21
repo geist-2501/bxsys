@@ -1,4 +1,4 @@
-import {blogFromMetadata} from "$lib/model/blog";
+import {blogFromMetadata} from "$lib/model/post";
 import type {Markdown} from "$lib/model/markdown";
 
 export async function load() {

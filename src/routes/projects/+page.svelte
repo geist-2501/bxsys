@@ -1,8 +1,17 @@
 <script lang="ts">
-    import type {PageData} from "./$types"
     import ProjectPreview from "$lib/components/ProjectPreview.svelte";
-    export let data: PageData
+    import type {ProjectsPageData} from "./+page";
+    export let data: ProjectsPageData
 </script>
 {#each data.projects as project}
-    <ProjectPreview project={project} />
+    <div class="container">
+        <ProjectPreview project={project} />
+    </div>
 {/each}
+
+<style>
+    .container {
+        margin-bottom: 64px;
+        max-width: 500px;
+    }
+</style>

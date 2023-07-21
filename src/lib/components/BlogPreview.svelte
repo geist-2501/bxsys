@@ -1,19 +1,19 @@
 <script lang="ts">
-    import type {Blog} from "$lib/model/blog";
+    import type {Post} from "$lib/model/post";
     import Link from "$lib/components/Link.svelte";
+    import BlogHeader from "$lib/components/BlogHeader.svelte";
 
-    export let blog: Blog | null
+    export let post: Post | null
 </script>
 
-{#if blog === null}
-    <p>Couldn't load blog</p>
+{#if post === null}
+    <p>Couldn't load post</p>
 {:else}
     <div class="post">
-        <h3>{blog.title}</h3>
-        <p class="tag">{blog.date.toLocaleDateString()}</p>
-        <p>{blog.description}</p>
+        <BlogHeader post={post} />
+        <p>{post.description}</p>
         <div class="link">
-            <Link href={`blog/${blog.slug}`}>Read More</Link>
+            <Link href={`blog/${post.slug}`}>Read More</Link>
         </div>
     </div>
 {/if}
@@ -26,14 +26,6 @@
 
         > * {
             margin: 6px 0;
-        }
-
-        .tag {
-            background-color: white;
-            color: #131313;
-            padding: 4px 8px;
-            border-radius: 4px;
-            margin: unset 12px unset 0;
         }
 
         .link {

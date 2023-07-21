@@ -4,5 +4,5 @@
     export let data: PageData
 </script>
 {#each data.posts as post}
-    <BlogPreview blog={post} />
+    <BlogPreview post={post} />
 {/each}

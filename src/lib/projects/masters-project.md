@@ -6,5 +6,3 @@ tags: [Python, PyTorch, RL]
 description: A reinforcement learning project centered around hierarchical learning techniques and their consequences in intra-logistics.
 slug: masters-project
 ---
-
-# Masters Project. 

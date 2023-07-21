@@ -1,6 +1,7 @@
 <script lang="ts">
     import type {Project} from "$lib/model/project";
     import Link from "$lib/components/Link.svelte";
+    import ProjectHeader from "$lib/components/ProjectHeader.svelte";
 
     export let project: Project | null
 </script>
@@ -9,18 +10,8 @@
     <p>Couldn't load project</p>
 {:else}
     <div class="project">
-        <div class="row">
-            <h3 class="title">{project.title}</h3>
-            {#each project.links as link}
-                <Link href={link.link}>{link.displayName}</Link>
-            {/each}
-        </div>
-        <div class="row">
-            {#each project.tags as tag}
-                <p class="tag">{tag}</p>
-            {/each}
-        </div>
-        <div class="row">
+        <ProjectHeader project={project} />
+        <div class="description">
             <p>{project.description}</p>
         </div>
 
@@ -36,27 +27,8 @@
         flex-direction: column;
         align-items: flex-start;
 
-        .row {
-            display: flex;
-            flex-direction: row;
-            align-items: baseline;
+        .description {
             margin: 6px 0;
-
-            .title {
-                margin-right: 18px;
-            }
-
-            > * {
-                margin-right: 12px
-            }
-
-            .tag {
-                background-color: white;
-                color: #131313;
-                padding: 4px 8px;
-                border-radius: 4px;
-                margin: unset 12px unset 0;
-            }
         }
 
         .link {

@@ -34,11 +34,19 @@
 
 <style lang="scss">
     :global(*) {
-        font-family: Rubik, sans-serif;
         color: white;
         box-sizing: border-box;
         font-weight: normal;
         margin: 0;
+    }
+
+    :global(code) {
+        font-family: 'JetBrains Mono', monospace;
+
+        > * {
+            font-family: 'JetBrains Mono', monospace;
+
+        }
     }
 
     :global(h1) {
@@ -67,10 +75,12 @@
     }
 
     .page {
+        font-family: Rubik, sans-serif;
+
         position: relative;
         overflow: auto;
         background-color: var(--col-bg);
-        width: 100vw;
+        width: 100%;
         min-height: 100vh;
         padding: 200px 10vw;
 

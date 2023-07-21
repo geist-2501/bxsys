@@ -1,8 +1,26 @@
 <script  lang="ts">
-    import type {PageData} from "./$types"
-    export let data: PageData
+    import MarkdownRenderer from "$lib/components/MarkdownRenderer.svelte";
+    import BlogHeader from "$lib/components/BlogHeader.svelte";
+    import type {BlogPageData} from "./+page";
 
-    const { post } = data
+    export let data: BlogPageData
+
+    const { post, metadata } = data
 </script>
 
-<svelte:component this={post} />
+<div class="container">
+    <div class="header">
+        <BlogHeader post={metadata} />
+    </div>
+    <MarkdownRenderer markdown={post} />
+</div>
+
+<style lang="scss">
+    .container {
+        max-width: 60vw;
+
+        .header {
+            margin-bottom: 20px;
+        }
+    }
+</style>

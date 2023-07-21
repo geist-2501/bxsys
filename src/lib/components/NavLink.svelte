@@ -1,14 +1,14 @@
-<script>
+<script lang="ts">
     import { page } from "$app/stores";
 
-    export let link;
-    export let text;
+    export let link: string;
+    export let text: string;
 
-    function getPath(currentPath) {
+    function getPath(currentPath: string) {
       selected = currentPath === link
     }
 
-    let selected;
+    let selected: boolean;
     $: getPath($page.url.pathname)
 </script>
 

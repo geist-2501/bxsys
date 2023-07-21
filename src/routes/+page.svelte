@@ -16,7 +16,7 @@
     <div class="featured">
         <div class="post">
             <h4>Featured post.</h4>
-            <BlogPreview blog={data.blog} />
+            <BlogPreview post={data.blog} />
         </div>
         <div class="project">
             <h4>Featured project.</h4>
